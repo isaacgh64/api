@@ -1,19 +1,26 @@
 <?php
-    require_once ('/libs/src/PHPMailer.php');
-    require_once ('/libs/src/SMTP.php');
-    require_once ('/libs/src/Exception.php');
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        http_response_code(200);
+        exit();
+    }
+
+    
+    require_once __DIR__ . '/libs/src/PHPMailer.php';
+    require_once __DIR__ . '/libs/src/SMTP.php';
+    require_once __DIR__ . '/libs/src/Exception.php';
+    require_once("../../connection.php");
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    require_once("../../connection.php");
     $connection = connectionBD();
+
     
     header('Content-Type: application/json');
-    header('Content-Type: application/json');
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(200);

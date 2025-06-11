@@ -1,11 +1,11 @@
 <?php
-    require_once ('/libs/src/PHPMailer.php');
-    require_once ('/libs/src/SMTP.php');
-    require_once ('/libs/src/Exception.php');
+    require_once __DIR__ . '/libs/src/PHPMailer.php';
+    require_once __DIR__ . '/libs/src/SMTP.php';
+    require_once __DIR__ . '/libs/src/Exception.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    
+
     require_once("../../connection.php");
     $connection = connectionBD();
 
